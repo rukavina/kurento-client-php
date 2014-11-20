@@ -1,0 +1,22 @@
+{
+    "name": "magnoliyan/kurento-client",
+    "type": "library",
+    "description": "A PHP Kurento Client",
+    "keywords": ["Kurento", "Client", "PHP"],
+    "homepage": "https://github.com/rukavinamilan/kurento-client-php",
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Milan Rukavina",
+        "email": "rukavinamilan@gmail.com"
+    }
+    ],    
+    "autoload": {
+        "psr-4": {
+            "MgKurentoClient\\": "src/MgKurentoClient"
+        }
+    },
+    "require": {
+        "gabrielbull/websocket-client": "*"
+    }
+}
