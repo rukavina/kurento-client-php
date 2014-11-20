@@ -16,7 +16,13 @@
             "MgKurentoClient\\": "src/MgKurentoClient"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Devristo/phpws"
+        }
+    ],    
     "require": {
-        "gabrielbull/websocket-client": "*"
+        "devristo/phpws": "dev-master"
     }
 }
