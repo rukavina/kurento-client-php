@@ -1,2 +1,4 @@
 composer.lock
 vendor
+/tests/nodeserver/node_modules/websocket/build/Release/.deps/
+/tests/nodeserver/node_modules
