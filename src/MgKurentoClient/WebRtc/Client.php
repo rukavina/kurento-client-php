@@ -19,9 +19,9 @@ class Client {
      */
     private function  __construct()
     {                
-        //$this->logger = new \Zend\Log\Logger();                
-        //$writer = new Zend\Log\Writer\Stream("php://output");        
-        //$this->logger->addWriter($writer);
+        $this->logger = new \Zend\Log\Logger();                
+        $writer = new Zend\Log\Writer\Stream("php://output");        
+        $this->logger->addWriter($writer);
         
         $this->loop = \React\EventLoop\Factory::create();
     }    
@@ -43,19 +43,15 @@ class Client {
      * @param string $websocketUrl
      * @return \Devristo\Phpws\Client\WebSocket
      */
-    public function initClient($websocketUrl) {                
+    public function initClient($websocketUrl, $loop) {
+        $this->loop = $loop;
         try {
             $this->client = new \Devristo\Phpws\Client\WebSocket($websocketUrl, $this->loop, $this->logger);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
-
-        
-        
-        $this->client->open();
-        
-        $this->loop->run();
-        
+                
+        $this->client->open();        
         return $this->client;
     }
     
