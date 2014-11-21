@@ -4,7 +4,6 @@ namespace MgKurentoClient\WebRtc;
 
 class Client {
     
-    private static $instance;
     /**
      *
      * @var \Devristo\Phpws\Client\WebSocket 
@@ -17,50 +16,33 @@ class Client {
     /**
      * private constructor
      */
-    private function  __construct()
-    {                
+    private function  __construct($websocketUrl, $loop)
+    {
         $this->logger = new \Zend\Log\Logger();                
         $writer = new Zend\Log\Writer\Stream("php://output");        
-        $this->logger->addWriter($writer);
-        
-        $this->loop = \React\EventLoop\Factory::create();
-    }    
-    
-    /**
-     *
-     * @return \MgKurentoClient\WebRtc\Client
-     */
-    public static function getInstance(){        
-        if(self::$instance === null)
-        {            
-            self::$instance = new self();
-        }        
-        return self::$instance;        
-    }
+        $this->logger->addWriter($writer);        
+        $this->loop = $loop;
+        $this->client = new \Devristo\Phpws\Client\WebSocket($websocketUrl . '?encoding=text', $this->loop, $this->logger);
+      
+    }       
     
     /**
      *
      * @param string $websocketUrl
      * @return \Devristo\Phpws\Client\WebSocket
      */
-    public function initClient($websocketUrl, $loop) {
-        $this->loop = $loop;
-        try {
-            $this->client = new \Devristo\Phpws\Client\WebSocket($websocketUrl, $this->loop, $this->logger);
-        } catch (Exception $exc) {
-            echo $exc->getTraceAsString();
-        }
-                
-        $this->client->open();        
-        return $this->client;
+    public function open() {
+        $this->client->open();
     }
     
-    /**
-     *
-     * @return \Devristo\Phpws\Client\WebSocket
-     */
-    public function getClient(){
-        return $this->client;
+    public function send($message){
+        $this->client->send($message);
+    }
+    
+    public function onMessage($callback){
+        $this->client->on("message", function($message){
+            $callback($message->getData());
+        });                
     }
 
 }

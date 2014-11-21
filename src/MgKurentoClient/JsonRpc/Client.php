@@ -3,12 +3,25 @@
 namespace MgKurentoClient\JsonRpc;
 
 class Client{
+    /**
+     *
+     * @var \MgKurentoClient\WebRtc\Client 
+     */
     protected $wsClient;
     protected $id = 0;
     protected $sessionId = null;
     protected $callbacks = array();
+    protected $subscriptions = array();
+    
+    function __construct($websocketUrl, $loop) {
+        $this->wsClient = new \MgKurentoClient\WebRtc\Client($websocketUrl, $loop);
+        $this->wsClient->open();
+        $this->wsClient->onMessage(function(){
+            $this->receive(json_decode($data, true));
+        });
+    }
 
-
+    
     protected function send($method, $params, $callback){
         $this->id++;
         if(isset($this->sessionId)){
@@ -16,12 +29,12 @@ class Client{
         }
         
         $data = array(
-            "jsonrpc"   =>  "2.0",
-            "id"         =>   $this->id,
+            "jsonrpc"   => "2.0",
+            "id"         => $this->id,
             "method"    => $method,
             "params"    => $params
         );
-        $this->wsClient->publish($data);
+        $this->wsClient->send(json_encode($data));
         $this->callbacks[$this->id] = $callback;
     }
     
@@ -29,6 +42,14 @@ class Client{
         //set sesstion 
         if(isset($data['result']['sessionId'])){
             $this->sessionId = $data['result']['sessionId'];
+        }
+        //onEvent?
+        if(isset($data['method']) && $data['method'] == 'onEvent'){
+            if(isset($this->subscriptions[$data['params']['value']['subscription']])){
+                $onEvent = $this->subscriptions[$data['params']['value']['subscription']];
+                $onEvent($data);
+            }
+            return;
         }
         if(isset($data['result']) && isset($data['id']) && isset($this->callbacks[$data['id']])){
             $callback = $this->callbacks[$data['id']];
@@ -67,16 +88,28 @@ class Client{
         ), $callback);
     }
     
-    public function sendSubscribe($object, $type, $callback){
+    public function sendSubscribe($object, $type, $onEvent, $callback){
         return $this->send('subscribe', array(
             'object'  => $object,
             'type'      => $type
-        ), $callback);
+        ), function($success, $data) use($onEvent){
+            if(!$success){                
+                return false;                
+            }
+            $this->subscriptions[$data['value']] = $onEvent;
+            $callback($success, $data);            
+        });
     }
     
     public function sendUnsubscribe($subscription, $callback){
         return $this->send('unsubscribe', array(
             'subscription'  => $subscription
-        ), $callback);
+        ), function($success, $data) use ($subscription){
+            if(!$success){                
+                return false;                
+            }            
+            unset($this->subscriptions[$subscription]);
+            $callback($success, $data);
+        });
     }    
 }
