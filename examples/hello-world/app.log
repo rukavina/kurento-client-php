@@ -1,0 +1,203 @@
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451","value":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6"}}
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6"},"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451"}}
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451","value":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6/ab0c2d48-1d71-4cb9-87aa-1109e36d62f8"}}
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6\/ab0c2d48-1d71-4cb9-87aa-1109e36d62f8","operation":"connect","operationParams":{"sink":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6\/ab0c2d48-1d71-4cb9-87aa-1109e36d62f8"},"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451"}}
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451","value":null}}
+
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"92d079f3-f1db-4b08-ae3c-bd88c1ca12e6\/ab0c2d48-1d71-4cb9-87aa-1109e36d62f8","operation":"processOffer","operationParams":{"offer":null},"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451"}}
+2014-11-22T19:34:02+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"6d3504f0-8c94-4855-8482-fff16c2d9451","value":"v=0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\n"}}
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8","value":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7"}}
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7"},"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8"}}
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8","value":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7/8aa2ba6c-3a4e-4ce5-8e44-a033099d7b95"}}
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7\/8aa2ba6c-3a4e-4ce5-8e44-a033099d7b95","operation":"connect","operationParams":{"sink":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7\/8aa2ba6c-3a4e-4ce5-8e44-a033099d7b95"},"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8"}}
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8","value":null}}
+
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"a78afd5f-6244-4d6e-8d1f-b63edb6da8c7\/8aa2ba6c-3a4e-4ce5-8e44-a033099d7b95","operation":"processOffer","operationParams":{"offer":null},"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8"}}
+2014-11-22T19:34:53+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"251cba38-36aa-42d6-8ef8-cbc6566675d8","value":"v=0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\n"}}
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90","value":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063"}}
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063"},"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90"}}
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90","value":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063/2addf4b2-99ac-4158-a8a4-891acad87bb3"}}
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063\/2addf4b2-99ac-4158-a8a4-891acad87bb3","operation":"connect","operationParams":{"sink":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063\/2addf4b2-99ac-4158-a8a4-891acad87bb3"},"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90"}}
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90","value":null}}
+
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"3f8d439f-1fce-44f7-a3e8-7c25e4fcc063\/2addf4b2-99ac-4158-a8a4-891acad87bb3","operation":"processOffer","operationParams":{"offer":"v=0\r\no=- 3214832426555786178 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O\r\nm=audio 15306 RTP\/SAVPF 111 103 104 0 8 106 105 13 126\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15306 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 36798 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 36798 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=ice-ufrag:gfKiJvPjN367IGr1\r\na=ice-pwd:udigVW+RyPH+eNarJEQYPouY\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:111 opus\/48000\/2\r\na=fmtp:111 minptime=10\r\na=rtpmap:103 ISAC\/16000\r\na=rtpmap:104 ISAC\/32000\r\na=rtpmap:0 PCMU\/8000\r\na=rtpmap:8 PCMA\/8000\r\na=rtpmap:106 CN\/32000\r\na=rtpmap:105 CN\/16000\r\na=rtpmap:13 CN\/8000\r\na=rtpmap:126 telephone-event\/8000\r\na=maxptime:60\r\na=ssrc:2555052951 cname:59dAvIDC4Pv\/dFc6\r\na=ssrc:2555052951 msid:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O 9427444a-3b8e-4d77-b728-e6245a23b743\r\na=ssrc:2555052951 mslabel:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O\r\na=ssrc:2555052951 label:9427444a-3b8e-4d77-b728-e6245a23b743\r\nm=video 15306 RTP\/SAVPF 100 116 117 96\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15306 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 36798 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 36798 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15306 typ srflx raddr 192.168.1.2 rport 36798 generation 0\r\na=ice-ufrag:gfKiJvPjN367IGr1\r\na=ice-pwd:udigVW+RyPH+eNarJEQYPouY\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:100 VP8\/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtpmap:116 red\/90000\r\na=rtpmap:117 ulpfec\/90000\r\na=rtpmap:96 rtx\/90000\r\na=fmtp:96 apt=100\r\na=ssrc-group:FID 3833383170 4187598171\r\na=ssrc:3833383170 cname:59dAvIDC4Pv\/dFc6\r\na=ssrc:3833383170 msid:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O f3807f00-7d0b-4919-98c3-5ab54d17955d\r\na=ssrc:3833383170 mslabel:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O\r\na=ssrc:3833383170 label:f3807f00-7d0b-4919-98c3-5ab54d17955d\r\na=ssrc:4187598171 cname:59dAvIDC4Pv\/dFc6\r\na=ssrc:4187598171 msid:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O f3807f00-7d0b-4919-98c3-5ab54d17955d\r\na=ssrc:4187598171 mslabel:E7w0PEWfnjxKJn71WkgGY7b3KGxKRKqdG40O\r\na=ssrc:4187598171 label:f3807f00-7d0b-4919-98c3-5ab54d17955d\r\n"},"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90"}}
+2014-11-22T19:36:36+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"b46bf1f0-4f19-4095-bd5b-d44a0c183a90","value":"v=0\r\no=- 3214832426555786178 0 IN IP4 0.0.0.0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\na=group:BUNDLE audio video\r\nm=audio 49431 RTP/SAVPF 0\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:0 PCMU/8000\r\na=sendrecv\r\na=rtcp:49431 IN IP4 192.168.1.2\r\na=ice-ufrag:6JcW\r\na=ice-pwd:EYksblKBfF93Mmi052hZb2\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 49431 typ host\r\na=ssrc:1112976302 cname:user2833531910@host-3e8d67e3\r\nm=video 49431 RTP/SAVPF 100\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:100 VP8/90000\r\na=sendrecv\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp:49431 IN IP4 192.168.1.2\r\na=ice-ufrag:6JcW\r\na=ice-pwd:EYksblKBfF93Mmi052hZb2\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 49431 typ host\r\na=ssrc:3533914990 cname:user2833531910@host-3e8d67e3\r\n"}}
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada","value":"2f3ed9e6-151a-4426-94ac-6cef44667d84"}}
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"2f3ed9e6-151a-4426-94ac-6cef44667d84"},"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada"}}
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada","value":"2f3ed9e6-151a-4426-94ac-6cef44667d84/34d38f6f-8dc1-45a9-9516-18f455786064"}}
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"2f3ed9e6-151a-4426-94ac-6cef44667d84\/34d38f6f-8dc1-45a9-9516-18f455786064","operation":"connect","operationParams":{"sink":"2f3ed9e6-151a-4426-94ac-6cef44667d84\/34d38f6f-8dc1-45a9-9516-18f455786064"},"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada"}}
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada","value":null}}
+
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"2f3ed9e6-151a-4426-94ac-6cef44667d84\/34d38f6f-8dc1-45a9-9516-18f455786064","operation":"processOffer","operationParams":{"offer":"v=0\r\no=- 2280773701711242214 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8\r\nm=audio 15311 RTP\/SAVPF 111 103 104 0 8 106 105 13 126\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15311 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 58744 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 58744 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=ice-ufrag:rXT9Yjy5Hxkta8sf\r\na=ice-pwd:4oULcqGED5b1Rv0HwVfHBHWL\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:111 opus\/48000\/2\r\na=fmtp:111 minptime=10\r\na=rtpmap:103 ISAC\/16000\r\na=rtpmap:104 ISAC\/32000\r\na=rtpmap:0 PCMU\/8000\r\na=rtpmap:8 PCMA\/8000\r\na=rtpmap:106 CN\/32000\r\na=rtpmap:105 CN\/16000\r\na=rtpmap:13 CN\/8000\r\na=rtpmap:126 telephone-event\/8000\r\na=maxptime:60\r\na=ssrc:2224209661 cname:F69K9UBIrtP6Qh+7\r\na=ssrc:2224209661 msid:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8 cac05fa9-ae57-421a-8222-d6acdb0b8d2d\r\na=ssrc:2224209661 mslabel:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8\r\na=ssrc:2224209661 label:cac05fa9-ae57-421a-8222-d6acdb0b8d2d\r\nm=video 15311 RTP\/SAVPF 100 116 117 96\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15311 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 58744 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 58744 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15311 typ srflx raddr 192.168.1.2 rport 58744 generation 0\r\na=ice-ufrag:rXT9Yjy5Hxkta8sf\r\na=ice-pwd:4oULcqGED5b1Rv0HwVfHBHWL\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:100 VP8\/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtpmap:116 red\/90000\r\na=rtpmap:117 ulpfec\/90000\r\na=rtpmap:96 rtx\/90000\r\na=fmtp:96 apt=100\r\na=ssrc-group:FID 1655329258 1526092588\r\na=ssrc:1655329258 cname:F69K9UBIrtP6Qh+7\r\na=ssrc:1655329258 msid:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8 fbd5cc3f-b04f-4488-bc18-e3c3435ec267\r\na=ssrc:1655329258 mslabel:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8\r\na=ssrc:1655329258 label:fbd5cc3f-b04f-4488-bc18-e3c3435ec267\r\na=ssrc:1526092588 cname:F69K9UBIrtP6Qh+7\r\na=ssrc:1526092588 msid:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8 fbd5cc3f-b04f-4488-bc18-e3c3435ec267\r\na=ssrc:1526092588 mslabel:tzCNHvygI3uKV1loZ6XP4J8wqYZrkgPnkEW8\r\na=ssrc:1526092588 label:fbd5cc3f-b04f-4488-bc18-e3c3435ec267\r\n"},"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada"}}
+2014-11-22T19:37:36+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"161d914d-4ff4-4021-a782-43bdc7d00ada","value":"v=0\r\no=- 2280773701711242214 0 IN IP4 0.0.0.0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\na=group:BUNDLE audio video\r\nm=audio 54086 RTP/SAVPF 0\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:0 PCMU/8000\r\na=sendrecv\r\na=rtcp:54086 IN IP4 192.168.1.2\r\na=ice-ufrag:KtE3\r\na=ice-pwd:jo6IgfLIag9b8fv9PUgdaO\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 54086 typ host\r\na=ssrc:2713417134 cname:user1492520887@host-7f7074b0\r\nm=video 54086 RTP/SAVPF 100\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:100 VP8/90000\r\na=sendrecv\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp:54086 IN IP4 192.168.1.2\r\na=ice-ufrag:KtE3\r\na=ice-pwd:jo6IgfLIag9b8fv9PUgdaO\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 54086 typ host\r\na=ssrc:1905183846 cname:user1492520887@host-7f7074b0\r\n"}}
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1","value":"61deaed8-48b7-4836-a8f1-7a9b74677df2"}}
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"61deaed8-48b7-4836-a8f1-7a9b74677df2"},"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1"}}
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1","value":"61deaed8-48b7-4836-a8f1-7a9b74677df2/654d8058-dab6-4126-a2cf-b251eb3e2d40"}}
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"61deaed8-48b7-4836-a8f1-7a9b74677df2\/654d8058-dab6-4126-a2cf-b251eb3e2d40","operation":"connect","operationParams":{"sink":"61deaed8-48b7-4836-a8f1-7a9b74677df2\/654d8058-dab6-4126-a2cf-b251eb3e2d40"},"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1"}}
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1","value":null}}
+
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"61deaed8-48b7-4836-a8f1-7a9b74677df2\/654d8058-dab6-4126-a2cf-b251eb3e2d40","operation":"processOffer","operationParams":{"offer":"v=0\r\no=- 6382125900940654869 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS 4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6\r\nm=audio 15314 RTP\/SAVPF 111 103 104 0 8 106 105 13 126\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15314 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 55236 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 55236 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=ice-ufrag:J7olGyJ\/E3gI80MV\r\na=ice-pwd:jW\/Dhc2ACVxZFsx7CkNnV7nB\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:111 opus\/48000\/2\r\na=fmtp:111 minptime=10\r\na=rtpmap:103 ISAC\/16000\r\na=rtpmap:104 ISAC\/32000\r\na=rtpmap:0 PCMU\/8000\r\na=rtpmap:8 PCMA\/8000\r\na=rtpmap:106 CN\/32000\r\na=rtpmap:105 CN\/16000\r\na=rtpmap:13 CN\/8000\r\na=rtpmap:126 telephone-event\/8000\r\na=maxptime:60\r\na=ssrc:963075851 cname:BRWSjyI2lynLnVvL\r\na=ssrc:963075851 msid:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6 91b3d4e5-602c-453f-895d-0c62b2d1e6bc\r\na=ssrc:963075851 mslabel:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6\r\na=ssrc:963075851 label:91b3d4e5-602c-453f-895d-0c62b2d1e6bc\r\nm=video 15314 RTP\/SAVPF 100 116 117 96\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15314 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 55236 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 55236 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15314 typ srflx raddr 192.168.1.2 rport 55236 generation 0\r\na=ice-ufrag:J7olGyJ\/E3gI80MV\r\na=ice-pwd:jW\/Dhc2ACVxZFsx7CkNnV7nB\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:100 VP8\/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtpmap:116 red\/90000\r\na=rtpmap:117 ulpfec\/90000\r\na=rtpmap:96 rtx\/90000\r\na=fmtp:96 apt=100\r\na=ssrc-group:FID 191150997 1981435303\r\na=ssrc:191150997 cname:BRWSjyI2lynLnVvL\r\na=ssrc:191150997 msid:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6 1e08ff07-0480-450a-bc68-dea9bb8e5624\r\na=ssrc:191150997 mslabel:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6\r\na=ssrc:191150997 label:1e08ff07-0480-450a-bc68-dea9bb8e5624\r\na=ssrc:1981435303 cname:BRWSjyI2lynLnVvL\r\na=ssrc:1981435303 msid:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6 1e08ff07-0480-450a-bc68-dea9bb8e5624\r\na=ssrc:1981435303 mslabel:4V8JAstEzji2G9n7Lp2bm1UR0R0H5WEPUud6\r\na=ssrc:1981435303 label:1e08ff07-0480-450a-bc68-dea9bb8e5624\r\n"},"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1"}}
+2014-11-22T19:38:10+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"893233af-0a1a-4c1f-b1a3-12f19e3b3ed1","value":"v=0\r\no=- 6382125900940654869 0 IN IP4 0.0.0.0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\na=group:BUNDLE audio video\r\nm=audio 52696 RTP/SAVPF 0\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:0 PCMU/8000\r\na=sendrecv\r\na=rtcp:52696 IN IP4 192.168.1.2\r\na=ice-ufrag:Lko7\r\na=ice-pwd:c0aDtI8JyAS5aMQyetRGmA\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 52696 typ host\r\na=ssrc:4024804374 cname:user1603000657@host-68edd7f5\r\nm=video 52696 RTP/SAVPF 100\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:100 VP8/90000\r\na=sendrecv\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp:52696 IN IP4 192.168.1.2\r\na=ice-ufrag:Lko7\r\na=ice-pwd:c0aDtI8JyAS5aMQyetRGmA\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 52696 typ host\r\na=ssrc:867404065 cname:user1603000657@host-68edd7f5\r\n"}}
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1","value":"eb02bcdf-deec-4a11-861c-5b987b7b53dd"}}
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"eb02bcdf-deec-4a11-861c-5b987b7b53dd"},"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1"}}
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1","value":"eb02bcdf-deec-4a11-861c-5b987b7b53dd/5e01cbe7-31c7-4bc5-bcca-61428f46712b"}}
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"eb02bcdf-deec-4a11-861c-5b987b7b53dd\/5e01cbe7-31c7-4bc5-bcca-61428f46712b","operation":"connect","operationParams":{"sink":"eb02bcdf-deec-4a11-861c-5b987b7b53dd\/5e01cbe7-31c7-4bc5-bcca-61428f46712b"},"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1"}}
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1","value":null}}
+
+2014-11-22T20:00:17+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"eb02bcdf-deec-4a11-861c-5b987b7b53dd\/5e01cbe7-31c7-4bc5-bcca-61428f46712b","operation":"processOffer","operationParams":{"offer":"v=0\r\no=- 5207218283588084199 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB\r\nm=audio 15805 RTP\/SAVPF 111 103 104 0 8 106 105 13 126\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15805 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 34437 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 34437 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=ice-ufrag:ZomuDjaT39K1aVJ6\r\na=ice-pwd:yV1P1raGzmCEJWT0KVha84MZ\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:111 opus\/48000\/2\r\na=fmtp:111 minptime=10\r\na=rtpmap:103 ISAC\/16000\r\na=rtpmap:104 ISAC\/32000\r\na=rtpmap:0 PCMU\/8000\r\na=rtpmap:8 PCMA\/8000\r\na=rtpmap:106 CN\/32000\r\na=rtpmap:105 CN\/16000\r\na=rtpmap:13 CN\/8000\r\na=rtpmap:126 telephone-event\/8000\r\na=maxptime:60\r\na=ssrc:3176321916 cname:FE\/K2tbFSLEXtOl3\r\na=ssrc:3176321916 msid:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB 2ef3fa86-b8ba-4ee4-b891-aba81d4cd271\r\na=ssrc:3176321916 mslabel:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB\r\na=ssrc:3176321916 label:2ef3fa86-b8ba-4ee4-b891-aba81d4cd271\r\nm=video 15805 RTP\/SAVPF 100 116 117 96\r\nc=IN IP4 77.105.24.191\r\na=rtcp:15805 IN IP4 77.105.24.191\r\na=candidate:2437072876 1 udp 2122260223 192.168.1.2 34437 typ host generation 0\r\na=candidate:2437072876 2 udp 2122260223 192.168.1.2 34437 typ host generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:3753982748 1 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:3753982748 2 tcp 1518280447 192.168.1.2 0 typ host tcptype active generation 0\r\na=candidate:941443129 1 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=candidate:941443129 2 udp 1686052607 77.105.24.191 15805 typ srflx raddr 192.168.1.2 rport 34437 generation 0\r\na=ice-ufrag:ZomuDjaT39K1aVJ6\r\na=ice-pwd:yV1P1raGzmCEJWT0KVha84MZ\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 31:36:46:93:42:23:29:3F:1F:7C:D3:A0:37:9E:0D:60:7F:A9:91:64:2E:47:78:DF:12:76:32:9A:97:87:E4:03\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:100 VP8\/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtpmap:116 red\/90000\r\na=rtpmap:117 ulpfec\/90000\r\na=rtpmap:96 rtx\/90000\r\na=fmtp:96 apt=100\r\na=ssrc-group:FID 1404569161 2705995168\r\na=ssrc:1404569161 cname:FE\/K2tbFSLEXtOl3\r\na=ssrc:1404569161 msid:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB 412d84a8-b3e7-431a-bfb1-6d8b713b6454\r\na=ssrc:1404569161 mslabel:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB\r\na=ssrc:1404569161 label:412d84a8-b3e7-431a-bfb1-6d8b713b6454\r\na=ssrc:2705995168 cname:FE\/K2tbFSLEXtOl3\r\na=ssrc:2705995168 msid:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB 412d84a8-b3e7-431a-bfb1-6d8b713b6454\r\na=ssrc:2705995168 mslabel:fSFBTZDtvOS5kt4krKzamVnx2wvaQy7nVzaB\r\na=ssrc:2705995168 label:412d84a8-b3e7-431a-bfb1-6d8b713b6454\r\n"},"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1"}}
+2014-11-22T20:00:18+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"c024faba-f523-4a92-923b-2119f0c62ba1","value":"v=0\r\no=- 5207218283588084199 0 IN IP4 0.0.0.0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\na=group:BUNDLE audio video\r\nm=audio 45309 RTP/SAVPF 0\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:0 PCMU/8000\r\na=sendrecv\r\na=rtcp:45309 IN IP4 192.168.1.2\r\na=ice-ufrag:BgYb\r\na=ice-pwd:hrKdHbbJK7bsQWMRJBjw+D\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 45309 typ host\r\na=ssrc:2756994667 cname:user2785248602@host-6593576d\r\nm=video 45309 RTP/SAVPF 100\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:100 VP8/90000\r\na=sendrecv\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp:45309 IN IP4 192.168.1.2\r\na=ice-ufrag:BgYb\r\na=ice-pwd:hrKdHbbJK7bsQWMRJBjw+D\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 45309 typ host\r\na=ssrc:2735070326 cname:user2785248602@host-6593576d\r\n"}}
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Request object created!
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Handshake received!
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Connected!
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":1,"method":"create","params":{"type":"MediaPipeline","constructorParams":[]}}
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Got message: {"id":1,"jsonrpc":"2.0","result":{"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d","value":"7a893a90-707b-4bce-a65e-7d4f39ce66da"}}
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":2,"method":"create","params":{"type":"WebRtcEndpoint","constructorParams":{"mediaPipeline":"7a893a90-707b-4bce-a65e-7d4f39ce66da"},"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d"}}
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Got message: {"id":2,"jsonrpc":"2.0","result":{"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d","value":"7a893a90-707b-4bce-a65e-7d4f39ce66da/c70447b9-f131-44c4-9eec-1c9ae015c63a"}}
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":3,"method":"invoke","params":{"object":"7a893a90-707b-4bce-a65e-7d4f39ce66da\/c70447b9-f131-44c4-9eec-1c9ae015c63a","operation":"connect","operationParams":{"sink":"7a893a90-707b-4bce-a65e-7d4f39ce66da\/c70447b9-f131-44c4-9eec-1c9ae015c63a"},"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d"}}
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Got message: {"id":3,"jsonrpc":"2.0","result":{"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d","value":null}}
+
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Sending message: {"jsonrpc":"2.0","id":4,"method":"invoke","params":{"object":"7a893a90-707b-4bce-a65e-7d4f39ce66da\/c70447b9-f131-44c4-9eec-1c9ae015c63a","operation":"processOffer","operationParams":{"offer":"v=0\r\no=- 5394805412054449260 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE audio video\r\na=msid-semantic: WMS toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF\r\nm=audio 16371 RTP\/SAVPF 111 103 104 0 8 106 105 13 126\r\nc=IN IP4 77.105.24.191\r\na=rtcp:16371 IN IP4 77.105.24.191\r\na=candidate:617392483 1 udp 2122063615 192.168.1.112 63142 typ host generation 0\r\na=candidate:617392483 2 udp 2122063615 192.168.1.112 63142 typ host generation 0\r\na=candidate:1783584147 1 tcp 1518083839 192.168.1.112 0 typ host tcptype active generation 0\r\na=candidate:1783584147 2 tcp 1518083839 192.168.1.112 0 typ host tcptype active generation 0\r\na=candidate:2776936407 1 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 2 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 1 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 2 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=ice-ufrag:WqUtH1YWauqemHuE\r\na=ice-pwd:YoTxXyafM\/lO4r96Ac4\/YFEk\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 64:6F:A5:B6:0E:56:80:66:E5:E1:3F:6C:77:34:8C:75:79:CA:76:1F:FA:86:83:8E:F8:4B:F6:CD:05:94:70:C7\r\na=setup:actpass\r\na=mid:audio\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:111 opus\/48000\/2\r\na=fmtp:111 minptime=10\r\na=rtpmap:103 ISAC\/16000\r\na=rtpmap:104 ISAC\/32000\r\na=rtpmap:0 PCMU\/8000\r\na=rtpmap:8 PCMA\/8000\r\na=rtpmap:106 CN\/32000\r\na=rtpmap:105 CN\/16000\r\na=rtpmap:13 CN\/8000\r\na=rtpmap:126 telephone-event\/8000\r\na=maxptime:60\r\na=ssrc:4056356886 cname:W41Fmyho94QIhCoK\r\na=ssrc:4056356886 msid:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF 1977d975-c641-482f-a9d8-f09a24dfd8e1\r\na=ssrc:4056356886 mslabel:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF\r\na=ssrc:4056356886 label:1977d975-c641-482f-a9d8-f09a24dfd8e1\r\nm=video 16371 RTP\/SAVPF 100 116 117 96\r\nc=IN IP4 77.105.24.191\r\na=rtcp:16371 IN IP4 77.105.24.191\r\na=candidate:617392483 1 udp 2122063615 192.168.1.112 63142 typ host generation 0\r\na=candidate:617392483 2 udp 2122063615 192.168.1.112 63142 typ host generation 0\r\na=candidate:1783584147 1 tcp 1518083839 192.168.1.112 0 typ host tcptype active generation 0\r\na=candidate:1783584147 2 tcp 1518083839 192.168.1.112 0 typ host tcptype active generation 0\r\na=candidate:2776936407 1 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 2 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 1 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=candidate:2776936407 2 udp 1685855999 77.105.24.191 16371 typ srflx raddr 192.168.1.112 rport 63142 generation 0\r\na=ice-ufrag:WqUtH1YWauqemHuE\r\na=ice-pwd:YoTxXyafM\/lO4r96Ac4\/YFEk\r\na=ice-options:google-ice\r\na=fingerprint:sha-256 64:6F:A5:B6:0E:56:80:66:E5:E1:3F:6C:77:34:8C:75:79:CA:76:1F:FA:86:83:8E:F8:4B:F6:CD:05:94:70:C7\r\na=setup:actpass\r\na=mid:video\r\na=extmap:2 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:3 http:\/\/www.webrtc.org\/experiments\/rtp-hdrext\/abs-send-time\r\na=sendrecv\r\na=rtcp-mux\r\na=rtpmap:100 VP8\/90000\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp-fb:100 goog-remb\r\na=rtpmap:116 red\/90000\r\na=rtpmap:117 ulpfec\/90000\r\na=rtpmap:96 rtx\/90000\r\na=fmtp:96 apt=100\r\na=ssrc-group:FID 2993552360 2814863240\r\na=ssrc:2993552360 cname:W41Fmyho94QIhCoK\r\na=ssrc:2993552360 msid:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF 1d01f3db-7f02-45cc-ae33-a17fdae6b109\r\na=ssrc:2993552360 mslabel:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF\r\na=ssrc:2993552360 label:1d01f3db-7f02-45cc-ae33-a17fdae6b109\r\na=ssrc:2814863240 cname:W41Fmyho94QIhCoK\r\na=ssrc:2814863240 msid:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF 1d01f3db-7f02-45cc-ae33-a17fdae6b109\r\na=ssrc:2814863240 mslabel:toeQaDwsOhtWFjT34CMkdotcZGQHHVamnhjF\r\na=ssrc:2814863240 label:1d01f3db-7f02-45cc-ae33-a17fdae6b109\r\n"},"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d"}}
+2014-11-22T20:06:57+01:00 NOTICE (5): 
+Got message: {"id":4,"jsonrpc":"2.0","result":{"sessionId":"509a34b2-adee-4aa3-a595-edf9a7b0fe9d","value":"v=0\r\no=- 5394805412054449260 0 IN IP4 0.0.0.0\r\ns=TestSession\r\nc=IN IP4 0.0.0.0\r\nt=0 0\r\na=group:BUNDLE audio video\r\nm=audio 53879 RTP/SAVPF 0\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:0 PCMU/8000\r\na=sendrecv\r\na=rtcp:53879 IN IP4 192.168.1.2\r\na=ice-ufrag:8XBK\r\na=ice-pwd:EOcQ9wQd/YaoDT54PYYc9N\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 53879 typ host\r\na=ssrc:3826796708 cname:user1043361106@host-8ace931\r\nm=video 53879 RTP/SAVPF 100\r\nc=IN IP4 192.168.1.2\r\na=rtpmap:100 VP8/90000\r\na=sendrecv\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=rtcp:53879 IN IP4 192.168.1.2\r\na=ice-ufrag:8XBK\r\na=ice-pwd:EOcQ9wQd/YaoDT54PYYc9N\r\na=fingerprint:sha-256 3B:2A:16:AA:3D:CA:7D:63:80:D1:89:72:67:AC:40:D2:38:AE:F4:81:85:95:3B:FE:97:F5:74:5C:D5:8B:1F:C8\r\na=rtcp-mux\r\na=candidate:1 1 UDP 2013266431 192.168.1.2 53879 typ host\r\na=ssrc:1844699005 cname:user1043361106@host-8ace931\r\n"}}
+
