@@ -1,7 +1,20 @@
 <?php
+/*
+ * This file is part of the Kurento Client php package.
+ *
+ * (c) Milan Rukavina
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace MgKurentoClient\WebRtc;
 
+/**
+ * Websocket transport layer implementation
+ * 
+ * @author Milan Rukavina 
+ */
 class Client {
     
     /**
@@ -14,56 +27,68 @@ class Client {
 
 
     /**
-     * private constructor
+     *
+     * Constructor
      */
-    public function  __construct($websocketUrl, $loop)
+    public function  __construct($websocketUrl, $loop, $logger)
     {
-        $this->logger = new \Zend\Log\Logger();                
-        $writer = new \Zend\Log\Writer\Stream("php://output");        
-        $this->logger->addWriter($writer);        
+        $this->logger = $logger;
         $this->loop = $loop;
         $this->client = new \Devristo\Phpws\Client\WebSocket($websocketUrl . '?encoding=text', $this->loop, $this->logger);
         
         //debug
-        $this->client->on("request", function($headers){
-            print_r("\nRequest object created!\n");
+        $this->client->on("request", function($headers){            
+            $this->logger->notice("\nRequest object created!\n");
         });
 
         $this->client->on("handshake", function() {
-            print_r("\nHandshake received!\n");
+            $this->logger->notice("\nHandshake received!\n");
         });
 
         $this->client->on("connect", function(){
-            print_r("\nConnected!\n");
+            $this->logger->notice("\nConnected!\n");
         });
 
         $this->client->on("message", function($message){
-            print_r("\nGot message: " . $message->getData());
+            $this->logger->notice("\nGot message: " . $message->getData());
         });        
       
     }       
     
     /**
-     *
-     * @param string $websocketUrl
-     * @return \Devristo\Phpws\Client\WebSocket
+     * Open WS connections 
      */
     public function open() {
         $this->client->open();
     }
     
+    /**
+     * Send message
+     * 
+     * @param string $message 
+     */
     public function send($message){
-        print_r("\nSending message: " . $message);
+        $this->logger->notice("\nSending message: " . $message);
         $this->client->send($message);
     }
     
-    public function onMessage($callback){
+    /**
+     * On message received callback
+     * 
+     * @param callable $callback 
+     */
+    public function onMessage(callable $callback){
         $this->client->on("message", function($message) use ($callback){
             $callback($message->getData());
         });                
     }
     
-    public function onConnect($callback){
+    /**
+     * On connect callback
+     * 
+     * @param callable $callback 
+     */
+    public function onConnect(callable $callback){
         $this->client->on("connect", $callback);                
     }    
 

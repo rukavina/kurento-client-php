@@ -1,7 +1,21 @@
 <?php
+/*
+ * This file is part of the Kurento Client php package.
+ *
+ * (c) Milan Rukavina
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace MgKurentoClient\JsonRpc;
 
+/**
+ * JSON RPC implementation
+ * 
+ * @author Milan Rukavina
+ *  
+ */
 class Client{
     /**
      *
@@ -12,9 +26,11 @@ class Client{
     protected $sessionId = null;
     protected $callbacks = array();
     protected $subscriptions = array();
+    protected $logger = null;
     
-    function __construct($websocketUrl, $loop, $callback) {
-        $this->wsClient = new \MgKurentoClient\WebRtc\Client($websocketUrl, $loop);
+    function __construct($websocketUrl, $loop, $logger, $callback) {
+        $this->logger = $logger;
+        $this->wsClient = new \MgKurentoClient\WebRtc\Client($websocketUrl, $loop, $this->logger);
         $this->wsClient->open();
         $this->wsClient->onMessage(function($data){
             $this->receive(json_decode($data, true));
@@ -22,8 +38,14 @@ class Client{
         $this->wsClient->onConnect($callback);        
     }
 
-    
-    protected function send($method, $params, $callback){        
+    /**
+     * Send method
+     * 
+     * @param string $method
+     * @param array $params
+     * @param callable $callback 
+     */
+    protected function send($method, $params, callable $callback){        
         $this->id++;
         if(isset($this->sessionId)){
             $params['sessionId'] = $this->sessionId;
@@ -39,6 +61,13 @@ class Client{
         $this->callbacks[$this->id] = $callback;
     }
     
+    /**
+     * Receive data
+     * 
+     * @param array $data
+     * @return mixed
+     * @throws \MgKurentoClient\JsonRpc\Exception 
+     */
     public function receive($data){
         //set sesstion 
         if(isset($data['result']['sessionId'])){
@@ -68,14 +97,31 @@ class Client{
         throw new \MgKurentoClient\JsonRpc\Exception('Json callback not found');
     }    
     
-    public function sendCreate($type, $creationParams, $callback){        
+    /**
+     * Create method
+     * 
+     * @param string $type
+     * @param array $creationParams
+     * @param callable $callback
+     * @return mixed 
+     */
+    public function sendCreate($type, $creationParams, callable $callback){        
         return $this->send('create', array(
             'type'  => $type,
             'constructorParams'    => $creationParams
         ), $callback);
     }
     
-    public function sendInvoke($object, $operation, $operationParams, $callback){
+    /**
+     * Invoke method
+     * 
+     * @param string $object
+     * @param string $operation
+     * @param array $operationParams
+     * @param callable $callback
+     * @return mixed 
+     */
+    public function sendInvoke($object, $operation, $operationParams, callable $callback){
         return $this->send('invoke', array(
             'object'  => $object,
             'operation' => $operation,
@@ -83,13 +129,29 @@ class Client{
         ), $callback);
     }
     
-    public function sendRelease($object, $callback){
+    /**
+     * Release method
+     * 
+     * @param string $object
+     * @param callable $callback
+     * @return type 
+     */
+    public function sendRelease($object, callable $callback){
         return $this->send('release', array(
             'object'  => $object
         ), $callback);
     }
     
-    public function sendSubscribe($object, $type, $onEvent, $callback){
+    /**
+     * Subscribe method
+     * 
+     * @param string $object
+     * @param string $type
+     * @param string $onEvent
+     * @param callable $callback
+     * @return mixed 
+     */
+    public function sendSubscribe($object, $type, $onEvent, callable $callback){
         return $this->send('subscribe', array(
             'object'  => $object,
             'type'      => $type
@@ -102,7 +164,14 @@ class Client{
         });
     }
     
-    public function sendUnsubscribe($subscription, $callback){
+    /**
+     * Unsubscribe method
+     * 
+     * @param string $subscription
+     * @param callable $callback
+     * @return mixed 
+     */
+    public function sendUnsubscribe($subscription, callable $callback){
         return $this->send('unsubscribe', array(
             'subscription'  => $subscription
         ), function($success, $data) use ($subscription){

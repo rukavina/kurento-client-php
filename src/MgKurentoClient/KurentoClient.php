@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Kurento Client php package.
+ *
+ * (c) Milan Rukavina
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace MgKurentoClient;
 
 /**
@@ -27,19 +36,25 @@ class KurentoClient {
      */
     private $pipeline = null;
     
-    private function __construct($websocketUrl, $loop, $callback) {
-        $this->jsonRpc = new \MgKurentoClient\JsonRpc\Client($websocketUrl, $loop, $callback);
+    private $logger = null;
+    
+    private function __construct($websocketUrl, $loop, $logger, callable $callback) {
+        $this->logger = $logger;
+        $this->jsonRpc = new \MgKurentoClient\JsonRpc\Client($websocketUrl, $loop, $this->logger, $callback);
     }
     
     /**
-     *
+     * Creates Client object
+     * 
      * @param string $websocketUrl
      * @param LibEventLoop|LibEvLoop|ExtEventLoop|StreamSelectLoop $loop
+     * @param \Zend\Log\Logger $logger
+     * 
      * @return KurentoClient 
      */
-    public static function create($websocketUrl, $loop, $callback) {
+    public static function create($websocketUrl, $loop, $logger, callable $callback) {
         if(!isset(self::$instance)){
-            self::$instance = new self($websocketUrl, $loop, function() use ($callback){
+            self::$instance = new self($websocketUrl, $loop, $logger, function() use ($callback){
                 $callback(self::$instance);
             });
         }
@@ -49,11 +64,11 @@ class KurentoClient {
     /**
      * Creates a new {MediaPipeline} in the media server
      * 
-     * @param mixed $callback
+     * @param callable $callback
      *
      * @return \MgKurentoClient\MediaPipeline
      */
-    public function createMediaPipeline($callback) {        
+    public function createMediaPipeline(callable $callback) {        
         $this->pipeline = new \MgKurentoClient\Impl\MediaPipeline($this->jsonRpc);        
         $this->pipeline->create(array(), function($success, $data) use ($callback){
             $callback($this->pipeline, $success, $data);

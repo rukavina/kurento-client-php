@@ -18,7 +18,7 @@ class WebRtcEndpoint extends MediaElement implements \MgKurentoClient\WebRtcEndp
         
     }
     public function processOffer($offer, $callback){
-        $this->remoteInvoke('processOffer', array('offer' => $offer), function($success, $data){
+        $this->remoteInvoke('processOffer', array('offer' => $offer), function($success, $data) use ($callback){
             $callback($success, $data);
         });        
     }
