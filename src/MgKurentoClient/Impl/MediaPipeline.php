@@ -2,7 +2,8 @@
 
 namespace MgKurentoClient\Impl;
 
-class MediaPipeline extends MediaObject implements \MgKurentoClient\MediaPipeline {    
+class MediaPipeline extends MediaObject implements \MgKurentoClient\MediaPipeline {
+    protected $remoteType = 'MediaPipeline';
     
     /**
      *

@@ -13,16 +13,17 @@ class Client{
     protected $callbacks = array();
     protected $subscriptions = array();
     
-    function __construct($websocketUrl, $loop) {
+    function __construct($websocketUrl, $loop, $callback) {
         $this->wsClient = new \MgKurentoClient\WebRtc\Client($websocketUrl, $loop);
         $this->wsClient->open();
-        $this->wsClient->onMessage(function(){
+        $this->wsClient->onMessage(function($data){
             $this->receive(json_decode($data, true));
         });
+        $this->wsClient->onConnect($callback);        
     }
 
     
-    protected function send($method, $params, $callback){
+    protected function send($method, $params, $callback){        
         $this->id++;
         if(isset($this->sessionId)){
             $params['sessionId'] = $this->sessionId;
@@ -67,7 +68,7 @@ class Client{
         throw new \MgKurentoClient\JsonRpc\Exception('Json callback not found');
     }    
     
-    public function sendCreate($type, $creationParams, $callback){
+    public function sendCreate($type, $creationParams, $callback){        
         return $this->send('create', array(
             'type'  => $type,
             'creationParams'    => $creationParams

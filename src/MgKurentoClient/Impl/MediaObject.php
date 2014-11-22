@@ -33,10 +33,13 @@ class MediaObject implements \MgKurentoClient\MediaObject {
         $this->remoteRelease(function(){});        
     }
     
+    public function create($params, $callback){        
+        $this->remoteCreate($params, $callback);
+    }     
+    
     protected function remoteCreate($params, $callback){
-        $this->pipeline->getJsonRpc()->sendCreate($this->remoteType, array_merge(array(
-            'pipeline'  => $this->pipeline->getId()
-        ), $params), $callback);
+        $localParams = ($this->pipeline == $this)? array(): array('pipeline'  => $this->pipeline->getId());        
+        $this->pipeline->getJsonRpc()->sendCreate($this->remoteType, array_merge($localParams, $params), $callback);
     }    
     
     protected function remoteInvoke($operation, $operationParams, $callback){

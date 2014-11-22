@@ -3,6 +3,8 @@
 namespace MgKurentoClient\Impl;
 
 class WebRtcEndpoint extends MediaElement implements \MgKurentoClient\WebRtcEndpoint {
+    protected $remoteType = 'WebRtcEndpoint';
+    
     public function generateOffer(){
         
     }
@@ -12,10 +14,12 @@ class WebRtcEndpoint extends MediaElement implements \MgKurentoClient\WebRtcEndp
     public function getRemoteSessionDescriptor(){
         
     }
-    public function processAnswer($answer){
+    public function processAnswer($answer, $callback){
         
     }
-    public function processOffer($offer){
-        
+    public function processOffer($offer, $callback){
+        $this->remoteInvoke('processOffer', array('offer' => $offer), function($success, $data){
+            $callback($success, $data);
+        });        
     }
 }

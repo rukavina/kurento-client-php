@@ -16,13 +16,30 @@ class Client {
     /**
      * private constructor
      */
-    private function  __construct($websocketUrl, $loop)
+    public function  __construct($websocketUrl, $loop)
     {
         $this->logger = new \Zend\Log\Logger();                
-        $writer = new Zend\Log\Writer\Stream("php://output");        
+        $writer = new \Zend\Log\Writer\Stream("php://output");        
         $this->logger->addWriter($writer);        
         $this->loop = $loop;
         $this->client = new \Devristo\Phpws\Client\WebSocket($websocketUrl . '?encoding=text', $this->loop, $this->logger);
+        
+        //debug
+        $this->client->on("request", function($headers){
+            print_r("\nRequest object created!\n");
+        });
+
+        $this->client->on("handshake", function() {
+            print_r("\nHandshake received!\n");
+        });
+
+        $this->client->on("connect", function(){
+            print_r("\nConnected!\n");
+        });
+
+        $this->client->on("message", function($message){
+            print_r("\nGot message: " . $message->getData());
+        });        
       
     }       
     
@@ -36,13 +53,18 @@ class Client {
     }
     
     public function send($message){
+        print_r("\nSending message: " . $message);
         $this->client->send($message);
     }
     
     public function onMessage($callback){
-        $this->client->on("message", function($message){
+        $this->client->on("message", function($message) use ($callback){
             $callback($message->getData());
         });                
     }
+    
+    public function onConnect($callback){
+        $this->client->on("connect", $callback);                
+    }    
 
 }
