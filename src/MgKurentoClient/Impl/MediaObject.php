@@ -12,7 +12,6 @@ class MediaObject implements \MgKurentoClient\MediaObject {
 
     function __construct(\MgKurentoClient\MediaPipeline $pipeline) {
         $this->pipeline = $pipeline;
-        $this->id = uniqid();
     }
 
     
@@ -38,8 +37,13 @@ class MediaObject implements \MgKurentoClient\MediaObject {
     }     
     
     protected function remoteCreate($params, $callback){
-        $localParams = ($this->pipeline == $this)? array(): array('pipeline'  => $this->pipeline->getId());        
-        $this->pipeline->getJsonRpc()->sendCreate($this->remoteType, array_merge($localParams, $params), $callback);
+        $localParams = ($this->pipeline == $this)? array(): array('mediaPipeline'  => $this->pipeline->getId());        
+        $this->pipeline->getJsonRpc()->sendCreate($this->remoteType, array_merge($localParams, $params), function($success, $data) use($callback){
+            if($success && isset($data['value'])){
+                $this->id = $data['value'];
+            }
+            $callback($success, $data);
+        });
     }    
     
     protected function remoteInvoke($operation, $operationParams, $callback){

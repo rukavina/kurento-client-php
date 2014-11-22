@@ -8,7 +8,7 @@ class MediaElement extends MediaObject implements \MgKurentoClient\MediaElement 
     protected $sources = array();
         
     public function connect(\MgKurentoClient\MediaElement $sink, $callback){
-        $this->remoteInvoke('connect', array('sink' => $sink->getId()), function($success, $data) use ($sink){
+        $this->remoteInvoke('connect', array('sink' => $sink->getId()), function($success, $data) use ($callback, $sink){
             if($success){
                 $this->sinks[] = $sink;
                 $sink->addSource($this);                

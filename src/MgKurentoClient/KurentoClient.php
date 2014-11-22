@@ -55,7 +55,7 @@ class KurentoClient {
      */
     public function createMediaPipeline($callback) {        
         $this->pipeline = new \MgKurentoClient\Impl\MediaPipeline($this->jsonRpc);        
-        $this->pipeline->create(array(), function($success, $data) use ($callback){            
+        $this->pipeline->create(array(), function($success, $data) use ($callback){
             $callback($this->pipeline, $success, $data);
         });
         return $this->pipeline;

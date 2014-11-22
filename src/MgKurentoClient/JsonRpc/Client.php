@@ -71,7 +71,7 @@ class Client{
     public function sendCreate($type, $creationParams, $callback){        
         return $this->send('create', array(
             'type'  => $type,
-            'creationParams'    => $creationParams
+            'constructorParams'    => $creationParams
         ), $callback);
     }
     

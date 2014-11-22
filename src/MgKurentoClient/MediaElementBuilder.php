@@ -15,13 +15,14 @@ class MediaElementBuilder {
     }
 
     public function build($callback, $className, $params = array()){
-        $className = '\MgKurentoClient\MediaPipeline' . $className;
+        $className = '\MgKurentoClient\Impl\\' . $className;
         if(!class_exists($className)){
+            throw new \Exception($className . ' does not exist!');
             return false;
         }
         /* @var $mediaElement \MgKurentoClient\MediaElement */
         $mediaElement = new $className($this->pipeline);
-        $mediaElement->create(function($success, $data) use ($callback){
+        $mediaElement->create($params, function($success, $data) use ($mediaElement, $callback){
             $callback($mediaElement, $success, $data);
         });
     }
