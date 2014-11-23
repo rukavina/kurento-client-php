@@ -10,9 +10,21 @@
 
 namespace MgKurentoClient;
 
-interface MediaPipeline extends MediaObject {
+class MediaPipeline extends MediaObject implements Interfaces\MediaPipeline {
+    
     /**
-     * @return  \MgKurentoClient\JsonRpc\Client
+     *
+     * @var \MgKurentoClient\JsonRpc\Client;
      */
-    public function getJsonRpc();
+    private $jsonRpc = null;    
+    
+    function __construct(JsonRpc\Client $jsonRpc) {
+        $this->jsonRpc = $jsonRpc;
+        parent::__construct($this);
+    }  
+    
+    public function getJsonRpc(){
+        return $this->jsonRpc;
+    }
+    
 }

@@ -26,7 +26,7 @@ class KurentoClient {
     
     /**
      *
-     * @var \MgKurentoClient\JsonRpc\Client;
+     * @var JsonRpc\Client;
      */
     private $jsonRpc = null;
     
@@ -40,7 +40,7 @@ class KurentoClient {
     
     private function __construct($websocketUrl, $loop, $logger, callable $callback) {
         $this->logger = $logger;
-        $this->jsonRpc = new \MgKurentoClient\JsonRpc\Client($websocketUrl, $loop, $this->logger, $callback);
+        $this->jsonRpc = new JsonRpc\Client($websocketUrl, $loop, $this->logger, $callback);
     }
     
     /**
@@ -66,11 +66,11 @@ class KurentoClient {
      * 
      * @param callable $callback
      *
-     * @return \MgKurentoClient\MediaPipeline
+     * @return Interfaces\MediaPipeline
      */
     public function createMediaPipeline(callable $callback) {        
-        $this->pipeline = new \MgKurentoClient\Impl\MediaPipeline($this->jsonRpc);        
-        $this->pipeline->create(array(), function($success, $data) use ($callback){
+        $this->pipeline = new MediaPipeline($this->jsonRpc);        
+        $this->pipeline->build(function($success, $data) use ($callback){
             $callback($this->pipeline, $success, $data);
         });
         return $this->pipeline;

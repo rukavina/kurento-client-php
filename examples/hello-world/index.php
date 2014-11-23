@@ -32,8 +32,8 @@ class DemoApp{
     public function run(){
         $this->client = \MgKurentoClient\KurentoClient::create($this->wsUrl, $this->loop, $this->logger, function($client){
             $this->client->createMediaPipeline(function($pipeline, $success, $data){
-                $mediaBuilder = new \MgKurentoClient\MediaElementBuilder($pipeline);
-                $mediaBuilder->build(function($webRtcEndpoint, $success, $data){
+                $webRtcEndpoint = new \MgKurentoClient\WebRtcEndpoint($pipeline);
+                $webRtcEndpoint->build(function($webRtcEndpoint, $success, $data){
                     $webRtcEndpoint->connect($webRtcEndpoint, function($success, $data) use ($webRtcEndpoint){
                         /* @var $webRtcEndpoint \MgKurentoClient\WebRtcEndpoint */
                         $webRtcEndpoint->processOffer($this->offer, function($success, $data){
@@ -42,7 +42,7 @@ class DemoApp{
                             $this->loop->stop();
                         });
                     });
-                }, 'WebRtcEndpoint');
+                });
             });    
         });
         $this->loop->run();

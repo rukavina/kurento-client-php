@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace MgKurentoClient\Impl;
+namespace MgKurentoClient\Interfaces;
 
-class RtpEndpoint extends MediaElement implements \MgKurentoClient\RtpEndpoint {    
+interface RtpEndpoint extends SdpEndpoint {        
 }

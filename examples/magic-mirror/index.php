@@ -80,15 +80,15 @@ class MirrorHandler extends WebSocketUriHandler {
     public function start(WebSocketTransportInterface $user, array $message){
         $this->client->createMediaPipeline(function($pipeline, $success, $data) use ($user, $message){
             $this->pipelines[$user->getId()] = $pipeline;
-            $mediaBuilder = new \MgKurentoClient\MediaElementBuilder($pipeline);
-            $mediaBuilder->build(function($webRtcEndpoint, $success, $data) use ($user, $message){
+            $webRtcEndpoint = new \MgKurentoClient\WebRtcEndpoint($pipeline);
+            $webRtcEndpoint->build(function($webRtcEndpoint, $success, $data) use ($user, $message){
                 $webRtcEndpoint->connect($webRtcEndpoint, function($success, $data) use ($webRtcEndpoint, $user, $message){
                     /* @var $webRtcEndpoint \MgKurentoClient\WebRtcEndpoint */
                     $webRtcEndpoint->processOffer($message['sdpOffer'], function($success, $data) use($user, $message){
                         $user->sendString($data['value']);
                     });
                 });
-            }, 'WebRtcEndpoint');
+            });
         });  
     }
 }

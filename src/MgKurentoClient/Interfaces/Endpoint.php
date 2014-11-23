@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace MgKurentoClient;
+namespace MgKurentoClient\Interfaces;
 
-interface SessionEndpoint extends Endpoint {        
+interface Endpoint extends MediaElement {        
 }
