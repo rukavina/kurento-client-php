@@ -1,5 +1,5 @@
 {
-    "name": "magnoliyan/kurento-client",
+    "name": "rukavinamilan/kurento-client-php",
     "type": "library",
     "description": "A PHP Kurento Client",
     "keywords": ["Kurento", "Client", "PHP"],

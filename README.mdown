@@ -1,14 +1,43 @@
-<?php
-/*
- * This file is part of the Kurento Client php package.
- *
- * (c) Milan Rukavina
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+Kurento Client PHP
+==================
 
-require_once("../../vendor/autoload.php");
+Kurento Client PHP library for [Kurento WebRTC media server](http://www.kurento.org/) which implements client side of [Kurento Protocol](http://www.kurento.org/docs/current/mastering/kurento_protocol.html)
+
+
+Installation
+------------
+The easiest way to install this library is using *composer*. Update your `composer.json`
+
+```javascript
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rukavina/kurento-client-php"
+        }
+    ],
+    "require": {
+        "rukavinamilan/kurento-client-php": "dev-master"
+    }
+```
+
+and run
+
+```
+composer install
+```
+
+For actual Kurento WebRTC media server installation please check http://www.kurento.org/docs/current/installation_guide.html
+
+
+Usage
+-----
+
+This is the *hello world* example. Read more at official [tutorials' page](http://www.kurento.org/docs/current/tutorials.html).
+
+```php
+<?php
+//composer autoload included
+require_once("vendor/autoload.php");
 
 class DemoApp{
     protected $offer = null;
@@ -60,5 +89,28 @@ $offer = file_get_contents('php://input');
 $demoApp = new DemoApp($offer, 'ws://127.0.0.1:8888/kurento');
 //start the app
 $demoApp->run();
+```
 
 
+Requirements
+------------
+
+- Kurento Client PHP works with PHP 5.3 or above.
+- [PHP Websocket library](https://github.com/Devristo/phpws)
+
+
+Author
+------
+
+Milan Rukavina
+
+
+License
+-------
+
+Kurento Client PHP is licensed under the MIT License - see the `LICENSE` file for details
+
+Acknowledgements
+----------------
+
+This library is heavily inspired by official [java](https://github.com/Kurento/kurento-java) and [javascript](https://github.com/Kurento/kurento-client-js) clients by Kurento
