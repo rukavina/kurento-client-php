@@ -81,7 +81,7 @@ class Client{
             }
             return;
         }
-        if(isset($data['result']) && isset($data['id']) && isset($this->callbacks[$data['id']])){
+        if(array_key_exists('result',$data) && isset($data['id']) && isset($this->callbacks[$data['id']])){
             $callback = $this->callbacks[$data['id']];
             $callback(true, $data['result']);
             unset($this->callbacks[$data['id']]);
@@ -93,7 +93,7 @@ class Client{
             unset($this->callbacks[$data['id']]);
             return;
         }
-        
+                
         throw new \MgKurentoClient\JsonRpc\Exception('Json callback not found');
     }    
     

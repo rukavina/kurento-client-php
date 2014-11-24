@@ -15,6 +15,6 @@ interface MediaObject {
     public function getId();    
     public function getMediaPipeline();
     public function getParent();
-    public function release();
+    public function release(callable $callback);
     
 }

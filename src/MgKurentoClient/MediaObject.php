@@ -35,8 +35,8 @@ class MediaObject implements Interfaces\MediaObject {
         
     }
     
-    public function release(){
-        $this->remoteRelease(function(){});        
+    public function release(callable $callback){
+        $this->remoteRelease($callback);        
     }
     
     protected function getRemoteTypeName(){

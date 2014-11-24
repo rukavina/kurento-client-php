@@ -78,8 +78,9 @@ class MirrorHandler extends WebSocketUriHandler {
                 if(isset($this->pipelines[$user->getId()])){
                     /* @var $pipeline \MgKurentoClient\MediaPipeline */
                     $pipeline = $this->pipelines[$user->getId()];
-                    $pipeline->release();
-                    unset($this->pipelines[$user->getId()]);
+                    $pipeline->release(function() use ($user){
+                        unset($this->pipelines[$user->getId()]);
+                    });                    
                 }
                 break;
 
@@ -106,10 +107,10 @@ class MirrorHandler extends WebSocketUriHandler {
                             $this->faceOverlayFilter->connect($this->webRtcEndpoint, function($success, $data) use ($user, $message){
                                 //process sdp offer
                                 $this->webRtcEndpoint->processOffer($message['sdpOffer'], function($success, $data) use ($user, $message){
-                                    $user->sendString(array(
+                                    $user->sendString(json_encode(array(
                                         "id"            => "startResponse",
                                         "sdpAnswer" => $data['value']
-                                    ));
+                                    )));
                                 });
                             });
                         });
