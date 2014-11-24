@@ -30,6 +30,17 @@ class MirrorHandler extends WebSocketUriHandler {
     protected $client = null;
     protected $wsUrl = 'ws://127.0.0.1:8888/kurento';
     
+    /**
+     * 
+     * @var \MgKurentoClient\WebRtcEndpoint
+     */
+    protected $webRtcEndpoint = null;
+    /**
+     *
+     * @var \MgKurentoClient\FaceOverlayFilter
+     */
+    protected $faceOverlayFilter= null;
+    
     function __construct($logger, $loop) {
         $this->loop = $loop;
         parent::__construct($logger);
@@ -78,14 +89,30 @@ class MirrorHandler extends WebSocketUriHandler {
     }
     
     public function start(WebSocketTransportInterface $user, array $message){
+        //build pipeline
         $this->client->createMediaPipeline(function($pipeline, $success, $data) use ($user, $message){
             $this->pipelines[$user->getId()] = $pipeline;
-            $webRtcEndpoint = new \MgKurentoClient\WebRtcEndpoint($pipeline);
-            $webRtcEndpoint->build(function($webRtcEndpoint, $success, $data) use ($user, $message){
-                $webRtcEndpoint->connect($webRtcEndpoint, function($success, $data) use ($webRtcEndpoint, $user, $message){
-                    /* @var $webRtcEndpoint \MgKurentoClient\WebRtcEndpoint */
-                    $webRtcEndpoint->processOffer($message['sdpOffer'], function($success, $data) use($user, $message){
-                        $user->sendString($data['value']);
+            //build webRtcEndpoint
+            $this->webRtcEndpoint = new \MgKurentoClient\WebRtcEndpoint($pipeline);
+            $this->webRtcEndpoint->build(function($webRtcEndpoint, $success, $data) use ($user, $message){
+                //build faceOverlayFilter
+                $this->faceOverlayFilter = new \MgKurentoClient\FaceOverlayFilter($this->pipelines[$user->getId()]);
+                $this->faceOverlayFilter->build(function($faceOverlayFilter, $success, $data) use($user, $message){
+                    //set overlay
+                    $this->faceOverlayFilter->setOverlayedImage("http://files.kurento.org/imgs/mario-wings.png", -0.35, -1.2, 1.6, 1.6, function($success, $data) use($user, $message){
+                        //connect webRtcEndpoint to faceOverlayFilter
+                        $this->webRtcEndpoint->connect($this->faceOverlayFilter, function($success, $data) use ($user, $message){
+                            //connect faceOverlayFilter to webRtcEndpoint
+                            $this->faceOverlayFilter->connect($this->webRtcEndpoint, function($success, $data) use ($user, $message){
+                                //process sdp offer
+                                $this->webRtcEndpoint->processOffer($message['sdpOffer'], function($success, $data) use ($user, $message){
+                                    $user->sendString(array(
+                                        "id"            => "startResponse",
+                                        "sdpAnswer" => $data['value']
+                                    ));
+                                });
+                            });
+                        });
                     });
                 });
             });
