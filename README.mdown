@@ -94,7 +94,18 @@ $demoApp->run();
 Examples installation
 ---------------------
 
-In order to run examples please create local virtual host and set `examples` folder as document root.
+Don't forget to install Kurento server first http://www.kurento.org/docs/current/installation_guide.html
+
+then 
+
+```
+git clone https://github.com/rukavina/kurento-client-php.git
+composer install
+```
+
+Then check `README` file in each particular example folder.
+
+Read more at official [tutorials' page](http://www.kurento.org/docs/current/tutorials.html).
 
 
 Requirements
