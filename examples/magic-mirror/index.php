@@ -50,15 +50,13 @@ class MirrorHandler extends WebSocketUriHandler {
     }
 
      /**
-     * New client connected
+     * A client disconnected
      *
      * @param WebSocketTransportInterface $user
      */
-    public function onConnect(WebSocketTransportInterface $user){
-        /*foreach($this->getConnections() as $client){
-            $client->sendString("User {$user->getId()} joined the chat: ");
-        }*/
-    }
+    public function onDisconnect(WebSocketTransportInterface $user){
+        $this->stop($user);
+    }  
 
     /**
      * New message
@@ -75,18 +73,22 @@ class MirrorHandler extends WebSocketUriHandler {
                 $this->start($user, $message);
                 break;
             case 'stop':
-                if(isset($this->pipelines[$user->getId()])){
-                    /* @var $pipeline \MgKurentoClient\MediaPipeline */
-                    $pipeline = $this->pipelines[$user->getId()];
-                    $pipeline->release(function() use ($user){
-                        unset($this->pipelines[$user->getId()]);
-                    });                    
-                }
+                $this->stop($user);
                 break;
 
             default:
                 break;
         }
+    }
+    
+    public function stop(WebSocketTransportInterface $user){
+        if(isset($this->pipelines[$user->getId()])){
+            /* @var $pipeline \MgKurentoClient\MediaPipeline */
+            $pipeline = $this->pipelines[$user->getId()];
+            $pipeline->release(function() use ($user){
+                unset($this->pipelines[$user->getId()]);
+            });                    
+        }        
     }
     
     public function start(WebSocketTransportInterface $user, array $message){

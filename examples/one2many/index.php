@@ -69,17 +69,15 @@ class CallHandler extends WebSocketUriHandler {
             $this->logger->notice("KurentoClient created");
         });
     }
-
+    
      /**
-     * New client connected
+     * A client disconnected
      *
      * @param WebSocketTransportInterface $user
      */
-    public function onConnect(WebSocketTransportInterface $user){
-        /*foreach($this->getConnections() as $client){
-            $client->sendString("User {$user->getId()} joined the chat: ");
-        }*/
-    }
+    public function onDisconnect(WebSocketTransportInterface $user){
+        $this->stop($user);
+    }    
     
     protected function sendResponse(WebSocketTransportInterface $user, $id, $response, $message = '', $params = array()){
         $resultParams = array_merge(array(
