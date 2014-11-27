@@ -46,12 +46,12 @@ class MediaObject implements Interfaces\MediaObject {
     }
     
     public function build(callable $callback, array $params = array()){
-        $this->remoteCreate($this->getRemoteTypeName(), $params, function($success, $data) use($callback){
+        $this->remoteCreate($this->getRemoteTypeName(), function($success, $data) use($callback){
             $callback($this, $success, $data);
-        });
+        }, $params);
     }     
     
-    protected function remoteCreate($remoteType, $params, $callback){
+    public function remoteCreate($remoteType, callable $callback, array $params = array()){
         $localParams = ($this->pipeline == $this)? array(): array('mediaPipeline'  => $this->pipeline->getId());        
         $this->pipeline->getJsonRpc()->sendCreate($remoteType, array_merge($localParams, $params), function($success, $data) use($callback){
             if($success && isset($data['value'])){
@@ -61,19 +61,19 @@ class MediaObject implements Interfaces\MediaObject {
         });
     }    
     
-    protected function remoteInvoke($operation, $operationParams, $callback){
+    public function remoteInvoke($operation, $operationParams, callable $callback){
         $this->pipeline->getJsonRpc()->sendInvoke($this->getId(), $operation, $operationParams, $callback);
     }
     
-    protected function remoteRelease($callback){
+    public function remoteRelease(callable $callback){
         $this->pipeline->getJsonRpc()->sendRelease($this->getId(), $callback);
     }
     
-    protected function remoteSubscribe($type, $onEvent, $callback){
+    protected function remoteSubscribe($type, $onEvent, callable $callback){
         $this->pipeline->getJsonRpc()->sendSubscribe($this->getId(), $type, $onEvent, $callback);
     }
     
-    protected function remoteUnsubscribe($subscription, $callback){
+    public function remoteUnsubscribe($subscription, callable $callback){
         $this->pipeline->getJsonRpc()->sendUnsubscribe($subscription, $callback);
     }    
     

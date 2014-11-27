@@ -91,6 +91,40 @@ $demoApp = new DemoApp($offer, 'ws://127.0.0.1:8888/kurento');
 $demoApp->run();
 ```
 
+Generic elements
+----------------
+
+If some remove object are not directly implemented as php classes you can still create and use them via generic `MediaObject` class.
+It provides generic method:
+
+```php
+    public function remoteCreate($remoteType, callable $callback, array $params = array());    
+    public function remoteInvoke($operation, $operationParams, callable $callback);    
+    public function remoteRelease(callable $callback);    
+    protected function remoteSubscribe($type, $onEvent, callable $callback);    
+    public function remoteUnsubscribe($subscription, callable $callback);
+```
+
+The same hello world example could be implemented using generic class/methods as
+
+```php
+$this->client = \MgKurentoClient\KurentoClient::create($this->wsUrl, $this->loop, $this->logger, function($client){
+    $this->client->createMediaPipeline(function($pipeline, $success, $data){
+        $webRtcEndpoint = new \MgKurentoClient\MediaObject($pipeline);
+        $webRtcEndpoint->remoteCreate('WebRtcEndpoint', function($webRtcEndpoint, $success, $data){
+            $webRtcEndpoint->connect($webRtcEndpoint, function($success, $data) use ($webRtcEndpoint){
+                $webRtcEndpoint->remoteInvoke('processOffer', array('offer' => $this->offer), function($success, $data){
+                    echo $data['value'];
+                    //we don't need the loop anymore , we're exiting now
+                    $this->loop->stop();
+                });
+            });
+        });
+    });    
+});
+$this->loop->run();
+```
+
 Examples installation
 ---------------------
 
