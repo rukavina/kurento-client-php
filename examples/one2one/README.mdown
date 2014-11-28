@@ -1,4 +1,4 @@
-One to many example
+One to one example
 ==================
 
 
