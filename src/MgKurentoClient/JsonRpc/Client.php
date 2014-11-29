@@ -75,8 +75,8 @@ class Client{
         }
         //onEvent?
         if(isset($data['method']) && $data['method'] == 'onEvent'){
-            if(isset($this->subscriptions[$data['params']['value']['subscription']])){
-                $onEvent = $this->subscriptions[$data['params']['value']['subscription']];
+            if(isset($this->subscriptions[$data['params']['value']['type']])){
+                $onEvent = $this->subscriptions[$data['params']['value']['type']];
                 $onEvent($data);
             }
             return;
@@ -155,7 +155,7 @@ class Client{
         return $this->send('subscribe', array(
             'object'  => $object,
             'type'      => $type
-        ), function($success, $data) use($onEvent){
+        ), function($success, $data) use($onEvent, $callback){
             if(!$success){                
                 return false;                
             }
