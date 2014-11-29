@@ -72,7 +72,7 @@ class CallHandler extends WebSocketUriHandler {
             "response"  => $response,
             "message"   => $message
         ), $params);
-        $session->sendString(json_encode($resultParams));        
+        $session->sendString(json_encode($resultParams, JSON_UNESCAPED_SLASHES));        
     }
 
     /**
@@ -182,7 +182,7 @@ class CallHandler extends WebSocketUriHandler {
             $callee->setSdpOffer($message["sdpOffer"]);
 
             try {
-                $pipeline = new CallMediaPipeline($this->client, $caller->getName(), $callee->getName, function($pipeline) use ($message, $callee, $caller) {
+                $pipeline = new CallMediaPipeline($this->client, $caller->getName(), $callee->getName(), function($pipeline) use ($message, $callee, $caller) {
                     $this->pipelines[$caller->getSession()->getId()] = $pipeline;
                     $this->pipelines[$callee->getSession()->getId()] = $pipeline;
                     
@@ -244,9 +244,8 @@ class CallHandler extends WebSocketUriHandler {
         $pipeline = new PlayMediaPipeline($this->client, $user, $session, function($pipeline) use ($message, $session){
             $pipeline->generateSdpAnswer($message['sdpOffer'], function($success, $data) use ($session, $pipeline){
                 $sdpAnswer = $data['value'];
-                $pipeline->play(function($success, $data) use ($session, $sdpAnswer){
-                    return $this->sendResponse($session, 'playResponse', "accepted", array('sdpAnswer' => $sdpAnswer));
-                });                
+                $this->sendResponse($session, 'playResponse', "accepted", '', array('sdpAnswer' => $sdpAnswer));
+                $pipeline->play(function($success, $data) {});                
             });
         });
     }     
@@ -327,6 +326,7 @@ class CallMediaPipeline {
                 });
             });                       
         } catch (Exception $exc) {
+            echo $exc->getMessage();
             if($this->pipeline != null){
                 $this->pipeline->release(function(){});
             }
@@ -394,14 +394,17 @@ class PlayMediaPipeline {
                     $this->player->build(function($endpoint, $success, $data) use ($callback){
                         $this->player->connect($this->webRtc, function($success, $data) use ($callback){
                             $this->player->addEndOfStreamListener(function(){
+                                echo "received end of stream event\n";
                                 $this->sendPlayEnd($this->session);
-                            }, function(){});
-                            $callback($this);
+                            }, function() use ($callback){
+                                $callback($this);
+                            });                            
                         });                        
                     }, array('uri' => CallMediaPipeline::RECORDING_PATH . $this->user . CallMediaPipeline::RECORDING_EXT));                                   
                 });
             });                       
         } catch (Exception $exc) {
+            echo $exc->getMessage();
             if($this->pipeline != null){
                 $this->pipeline->release(function(){});
             }
@@ -426,7 +429,7 @@ class PlayMediaPipeline {
         $resultParams = array(
             "id"        => 'playEnd'
         );
-        $session->sendString(json_encode($resultParams));        
+        $session->sendString(json_encode($resultParams, JSON_UNESCAPED_SLASHES));        
     }    
 
 }

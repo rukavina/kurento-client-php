@@ -1,0 +1,19 @@
+One to one with recording example
+=================================
+
+
+Installation
+------------
+
+Don't forget to install Kurento server first http://www.kurento.org/docs/current/installation_guide.html
+
+```
+git clone https://github.com/rukavina/kurento-client-php.git
+composer install
+cd examples/one2one-advanced
+php index.php
+```
+
+Open in the browser http://localhost/path_to_kurento-client-php/examples/one2one-advanced/index.html
+
+Java version and the explanation http://www.kurento.org/docs/current/tutorials/java/tutorial-5-one2one-adv.html

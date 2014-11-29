@@ -57,7 +57,7 @@ class Client{
             "method"    => $method,
             "params"    => $params
         );
-        $this->wsClient->send(json_encode($data));
+        $this->wsClient->send(json_encode($data, JSON_UNESCAPED_SLASHES));
         $this->callbacks[$this->id] = $callback;
     }
     
