@@ -106,10 +106,13 @@ class Client{
      * @return mixed 
      */
     public function sendCreate($type, $creationParams, callable $callback){        
-        return $this->send('create', array(
-            'type'  => $type,
-            'constructorParams'    => $creationParams
-        ), $callback);
+        $message = array(
+            'type'  => $type            
+        );
+        if(isset($creationParams) && count($creationParams)){
+            $message['constructorParams'] = $creationParams;
+        }
+        return $this->send('create', $message, $callback);
     }
     
     /**
